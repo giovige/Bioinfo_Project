@@ -112,6 +112,7 @@ getManifestRecord(manifest2)
 # Scrivo il nuovo manifest
 fout_mRNA = open('mRNA_kidney_manifest.txt', 'w+')
 fout_miRNA = open('miRNA_kidney_manifest.txt', 'w+')
+fout_miRNA.write(manifestList[0])   # la prima riga di intestazione va scritta su entrambi i file e l'if successivo non la includerebbe in uno dei file
 for line in manifestList:
     if 'quantification' in line:
         fout_miRNA.write(line)
