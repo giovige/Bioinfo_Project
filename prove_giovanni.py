@@ -12,11 +12,15 @@ X, y, features = load_dataset('dataset_finale_miRNA.csv')
 label_encoder = LabelEncoder()
 y = label_encoder.fit_transform(y)  # nomi delle classi: da string a integer
 
-# # METODO_1
-# rfe_selector = RFE(estimator=LogisticRegression(max_iter=10000), n_features_to_select=100, step=50, verbose=5)
+# METODO_1
+# rfe_selector = RFE(estimator=LogisticRegression(max_iter=40000), n_features_to_select=50, step=50, verbose=5)
+# rfe_selector = RFE(estimator=LogisticRegression(multi_class='multinomial', solver='saga', max_iter=50000), n_features_to_select=50, step=50, verbose=5)
 # rfe_selector.fit(X, y)
 # rfe_support = rfe_selector.get_support()
 # rfe_feature = X.loc[:, rfe_support].columns.tolist()
+# fout = open('feature_LR.txt', 'w+')
+# fout.write(rfe_feature)
+# fout.close()
 # print(str(len(rfe_feature)), 'selected features')
 
 # METODO_1
