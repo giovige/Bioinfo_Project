@@ -13,3 +13,33 @@
 - Mettere come working directory la cartella 'unione_maninfest'.
 
 - Avviare script.
+
+
+
+
+
+
+2) gdc_client.ee
+
+C:\Users\Giovanni\Desktop\Bio_Project>gdc-client.exe download -m unione_maninfest\nuovo_manifest_m.txt --dir .\mRNA\
+
+C:\Users\Giovanni\Desktop\Bio_Project>gdc-client.exe download -m unione_maninfest\nuovo_manifest_mi.txt --dir .\miRNA\
+
+verificare la conferma di ''Successfully downloaded: 1160''
+
+
+3) 
+move_files_miRNA.py
+move_files_mRNA.py
+
+4)
+- spostare file LABEL nella cartella creazione_dataset 
+- create_dataset_mi.py
+- create_dataset_m.py
+
+
+5)
+preprocessing
+
+
+6)
