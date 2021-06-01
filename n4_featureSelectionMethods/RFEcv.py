@@ -2,10 +2,10 @@
 from sklearn.svm import SVC
 from sklearn.model_selection import StratifiedKFold
 from sklearn.feature_selection import RFECV
-from n4_featureSelectionMethods.common_functions import read_dataset, get_param, wrong_parameters
+from n4_featureSelectionMethods.common_functions import read_dataset, get_param, wrong_parameters, subset_dataset
 
 
-def rfe_cv(datasetFile, labelDim, tosave):
+def rfe_cv(datasetFile, labelDim, tosave, n):
     print('\nUsing ' + datasetFile)
 
     data, X1, target_i, names1 = read_dataset(datasetFile, labelDim)
@@ -37,15 +37,15 @@ def rfe_cv(datasetFile, labelDim, tosave):
 
     if tosave == 'y':
         print('saving new dataset...')
-        best_feature = data[top_n_idx]
-        final_dataset_name = 'KN_' + labelDim + '_' + dataType + 'RNA.csv'
-        best_feature.to_csv(final_dataset_name, encoding='utf-8')
+        final_dataset_name = 'RFEcv_' + str(n) + '_' + labelDim + '_' + dataType + 'RNA.csv'
+        best_feature_dataset = subset_dataset(data, sorted_ranks_with_idx, n)
+        best_feature_dataset.to_csv(final_dataset_name, encoding='utf-8')
     else:
         print('End. Dataset not saved.')
 
 
-labelType, dataType, saveData = get_param()
+labelType, dataType, saveData, nfeatures = get_param()
 if wrong_parameters(labelType, dataType, saveData):  # verifico input utente
     exit(-1)
 datasetName = 'dataset_finale_' + dataType + 'RNA.csv'
-rfe_cv(datasetName, labelType, saveData)
+rfe_cv(datasetName, labelType, saveData, nfeatures)

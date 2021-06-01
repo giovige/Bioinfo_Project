@@ -1,9 +1,9 @@
 ## Decision tree
 from sklearn.tree import DecisionTreeRegressor
-from n4_featureSelectionMethods.common_functions import read_dataset, get_param, wrong_parameters
+from n4_featureSelectionMethods.common_functions import read_dataset, get_param, wrong_parameters, subset_dataset
 
 
-def decision_tree(datasetFile, labelDim, tosave):
+def decision_tree(datasetFile, labelDim, tosave, n):
     print('\nUsing ' + datasetFile)
 
     data, X1, target_i, names1 = read_dataset(datasetFile, labelDim)
@@ -22,15 +22,15 @@ def decision_tree(datasetFile, labelDim, tosave):
 
     if tosave == 'y':
         print('saving new dataset...')
-        best_feature = data[feat_dct]
-        final_dataset_name = 'DecTree_' + labelDim + '_' + dataType + 'RNA.csv'
-        best_feature.to_csv(final_dataset_name, encoding='utf-8')
+        final_dataset_name = 'DecTree_' + str(n) + '_' + labelDim + '_' + dataType + 'RNA.csv'
+        best_feature_dataset = subset_dataset(data, feat_dct, n)
+        best_feature_dataset.to_csv(final_dataset_name, encoding='utf-8')
     else:
         print('End. Dataset not saved.')
 
 
-labelType, dataType, saveData = get_param()
+labelType, dataType, saveData, nfeatures = get_param()
 if wrong_parameters(labelType, dataType, saveData):     # verifico input utente
     exit(-1)
 datasetName = 'dataset_finale_' + dataType + 'RNA.csv'
-decision_tree(datasetName, labelType, saveData)
+decision_tree(datasetName, labelType, saveData, nfeatures)

@@ -37,8 +37,17 @@ def get_param():
     labelType = input('> Complete or reduced list of labels? (R = reduced/C = complete)').lower()
     dataType = input('> Which dataset do you want to process?(mi= miRNA/m = mRNA)').lower()
     saveData = input('> Do you want to save the dataset containing only the most relevant features? (Y/N)').lower()
-    return labelType, dataType, saveData
+    n = int(input('> How many features do you want to select? '))
+    return labelType, dataType, saveData, n
 
 
 def wrong_parameters(labelType, dataType, saveData):
     return (saveData != 'y' and saveData != 'n') or (labelType != 'r' and labelType != 'c') or (dataType != 'm' and dataType != 'mi')
+
+
+def subset_dataset(dataset, bestfeatures, n):
+    feat_names = []
+    for f in bestfeatures:
+        feat_names.append(f[1])
+    new_dataset = dataset[feat_names[0:n]]
+    return new_dataset
