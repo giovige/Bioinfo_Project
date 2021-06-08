@@ -2,9 +2,13 @@ import pandas as pd
 import numpy as np
 from sklearn import preprocessing
 from sklearn.preprocessing import MinMaxScaler
+from sys import argv
 
+
+print("Main()")
+scriptname, dataset_name = argv
 todelete_filename = 'zerovalue20.txt'
-dataset_name = 'dataset_miRNA.csv'
+# dataset_name = 'dataset_miRNA.csv'
 
 # RECUPERO DA FILE I NOMI DELLE COLONNE DA ELIMINARE (altrimenti commentare)
 # worstFeatures = []

@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-f = open('label_mi.txt', 'r')
+f = open('new_label_mi.txt', 'r')
 label = {}
 lb = f.readline()
 print('reading_label()')

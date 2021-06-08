@@ -2,7 +2,7 @@ import gzip
 import os
 import pandas as pd
 
-f = open('label_m.txt', 'r')
+f = open('new_label_m.txt', 'r')
 label = {}
 lb = f.readline()
 print('reading_label()')
