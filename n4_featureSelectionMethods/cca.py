@@ -1,10 +1,28 @@
 import pandas as pd
 import numpy as np
 import rcca
+from sklearn.preprocessing import LabelBinarizer
+from numpy import array
+"""
+'cca_fs' is a function that selecet the best features of each dataset compute the canonical correlation analysis
+In particulare given the datasets as input, the function computes the score for each features stariting from
+the weight matrix produced by cca. It is also possible to give as imput the label of the samples to do
+'supervised' cca.
+Input:
+two datasets (m_data, mi_data)
+n: number of features to select from each dataset
+save : 1 if you want to save the final dataset
+label: to perform 'supervised' CCA give the label of the samples
+Output:
+Dataset: the final dataset with the top n features from each input dataset
+mRNA_ft : list of top n mRNA features
+miRNA_ft : list of top n miRNA features
 
+"""
 
-# -----------------------CCA
-def cca_fs(m_data, mi_data, save):
+##-----------------------CCA
+def cca_fs(m_data,mi_data,n,save,label=None):
+
     values_m = m_data.values
     values_mi = mi_data.values
     names_m_ft = np.array(m_data.axes[1])
@@ -12,29 +30,40 @@ def cca_fs(m_data, mi_data, save):
     # CCACrossValidate permits to o estimate hyperparameters empirically by using grid search with cross-validation.
     # cca_cross = rcca.CCACrossValidate(kernelcca=True, ktype='gaussian', regs=[1e-3, 1e-2, 1e-1], numCCs=[2, 10, 20])
     # cca_cross.train([values_m, values_mi])
-    # the best performances have been found with reg = 0.1 and numCC = 10
+    # cca_cross.train([values_m, values_mi,label])
+    #To tune hyperparamenters reg and numCC use rcca.crossvalidate to obtain the best values.
+    #If the hyperparameters are already tuned use rcca.CCA
 
-    cca = rcca.CCA(kernelcca=True, ktype='gaussian', reg=0.1, numCC=10)
-    cca.train([values_m, values_mi])
+    #In our case we obtain the best results with reg = 0.1 numCC = 10
+    cca = rcca.CCA(kernelcca=True, reg=0.1, numCC=10)
 
-    # Canonical weights
+    if label is None:
+        cca.train([values_m, values_mi])
+    else:
+        label = array(label)
+        # Binary encode
+        lb = LabelBinarizer()
+        list = lb.fit_transform(label) #Target transformed in binary encode
+        cca.train([values_m, values_mi,list])
+
+    #Canonical weights
     W1 = cca.ws[0]
     W2 = cca.ws[1]
 
     W1 = pd.DataFrame(W1)
-    # Compute the normalized weights matrix
+    #Compute the normalized weights matrix by normalize each value for the absolute value of the sum of the column
     Q1 = np.zeros([W1.shape[0], W1.shape[1]])
     Q1 = pd.DataFrame(Q1)
     for i in range(W1.shape[1]):
         for j in range(W1.shape[0]):
             Q1[i][j] = abs(W1[i][j]) / sum(abs(W1[i]))
 
-    # Determine the importance score for each features
+    #Determine the importance score for each features
     score1 = np.zeros([W1.shape[0], 1])
     for i in range(len(score1)):
         score1[i] = sum(Q1.values[i]) / Q1.values.sum()
 
-    # Same procedures for the second weights matrix
+    #Same procedures for the second weights matrix
     W2 = pd.DataFrame(W2)
     Q2 = np.zeros([W2.shape[0], W2.shape[1]])
     Q2 = pd.DataFrame(Q2)
@@ -47,25 +76,27 @@ def cca_fs(m_data, mi_data, save):
     for i in range(len(score2)):
         score2[i] = sum(Q2.values[i]) / Q2.values.sum()
 
-    # Order the most important 50 features
-    top_50_mft = []
+    #Order the most important n features
+    top_mft = []
     sorted_m_ft = sorted(zip(map(lambda x: x, score1), names_m_ft), reverse=True)
-    for i in range(50):
-        top_50_mft.append(sorted_m_ft[i][1])
-    top_50_m_data = m_data[top_50_mft]
+    for i in range(n):
+        top_mft.append(sorted_m_ft[i][1])
+    top_m_data = m_data[top_mft]
 
-    top_50_mift = []
+    top_mift = []
     sorted_mi_ft = sorted(zip(map(lambda x: x, score2), names_mi_ft), reverse=True)
-    for i in range(50):
-        top_50_mift.append(sorted_mi_ft[i][1])
-    top_50_mi_data = mi_data[top_50_mift]
+    for i in range(n):
+        top_mift.append(sorted_mi_ft[i][1])
+    top_mi_data = mi_data[top_mift]
 
-    CCA_result_dataset = pd.concat([top_50_m_data, top_50_mi_data],
-                                   axis=1)  # new dataset composed by top 50 mRNA and miRNA ft
+    CCA_result_dataset = pd.concat([top_m_data, top_mi_data], axis=1) #new dataset composed by top n mRNA and miRNA ft
     if save == 1:
-        CCA_result_dataset.to_csv('CCA_result_dataset.csv')
-    return CCA_result_dataset, top_50_mft, top_50_mift
+        CCA_result_dataset.to_csv('CCA_data_poly_lin.csv')
+    return CCA_result_dataset, top_mft, top_mift
 
-# m_data = pd.read_csv('scaled_dataset_finale_mRNA.csv', index_col=[0])
-# mi_data = pd.read_csv('scaled_dataset_finale_miRNA.csv', index_col=[0])
-# [data, mRNA_ft, miRNA_ft] = cca_fs(m_data,mi_data,0)
+#Import Data
+m_data = pd.read_csv('best_100_xgb_mRNA_data.csv', index_col=[0])
+mi_data = pd.read_csv('best_100_xgb_miRNA_data.csv', index_col=[0])
+target = list(m_data.axes[0])
+n_ft = 50
+[data, mRNA_ft, miRNA_ft] = cca_fs(m_data,mi_data,n_ft,0,target)
