@@ -15,7 +15,7 @@ def random_forest(datasetFile, labelDim, tosave, n):
     f = open('Result_FS.txt', 'a')
     feat_rf = sorted(zip(map(lambda x: round(x, 4), rf.feature_importances_), names1), reverse=True)
     f.write("Random Forest features sorted by their score:\n")
-    f.write(str(feat_rf[0:20]))
+    f.write(str(feat_rf[0:n]))
     f.close()
     print('end')
 
@@ -29,7 +29,7 @@ def random_forest(datasetFile, labelDim, tosave, n):
 
 
 labelType, dataType, saveData, nfeatures = get_param()
-if wrong_parameters(labelType, dataType, saveData, nfeatures):     # verifico input utente
+if wrong_parameters(labelType, saveData, nfeatures):     # verifico input utente
     exit(-1)
-datasetName = 'dataset_finale_' + dataType + 'RNA.csv'
+datasetName = dataType
 random_forest(datasetName, labelType, saveData, nfeatures)

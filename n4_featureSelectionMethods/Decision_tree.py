@@ -16,7 +16,7 @@ def decision_tree(datasetFile, labelDim, tosave, n):
     f = open('Result_FS.txt', 'a')
     f.write("\nDecision tree features sorted by their score:\n")
     feat_dct = sorted(zip(map(lambda x: round(x, 4), DCT.feature_importances_), names1), reverse=True)
-    f.write(str(feat_dct[0:20]))
+    f.write(str(feat_dct[0:n]))
     f.close()
     print('end')
 
@@ -30,7 +30,7 @@ def decision_tree(datasetFile, labelDim, tosave, n):
 
 
 labelType, dataType, saveData, nfeatures = get_param()
-if wrong_parameters(labelType, dataType, saveData, nfeatures):     # verifico input utente
+if wrong_parameters(labelType, saveData, nfeatures):     # verifico input utente
     exit(-1)
-datasetName = 'dataset_finale_' + dataType + 'RNA.csv'
+datasetName = dataType
 decision_tree(datasetName, labelType, saveData, nfeatures)

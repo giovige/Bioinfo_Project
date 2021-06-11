@@ -16,7 +16,7 @@ def XG_Boost(datasetFile, labelDim, tosave, n):
     f = open('Result_FS.txt', 'a')
     f.write("\nXGBoost features sorted by their score:\n")
     feat_xgb = sorted(zip(map(lambda x: round(x, 4), XGB.feature_importances_), names1), reverse=True)
-    f.write(str(feat_xgb[0:20]))
+    f.write(str(feat_xgb[0:n]))
     f.close()
     print('end')
 
@@ -30,7 +30,7 @@ def XG_Boost(datasetFile, labelDim, tosave, n):
 
 
 labelType, dataType, saveData, nfeatures = get_param()
-if wrong_parameters(labelType, dataType, saveData, nfeatures):     # verifico input utente
+if wrong_parameters(labelType, saveData, nfeatures):     # verifico input utente
     exit(-1)
-datasetName = 'dataset_finale_' + dataType + 'RNA.csv'
+datasetName = dataType
 XG_Boost(datasetName, labelType, saveData, nfeatures)

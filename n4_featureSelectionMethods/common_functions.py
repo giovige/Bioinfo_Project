@@ -35,14 +35,14 @@ def read_dataset(datasetName, labelDimentionality):
 
 def get_param():
     labelType = input('> Complete or reduced list of labels? (R = reduced/C = complete)').lower()
-    dataType = input('> Which dataset do you want to process?(mi= miRNA/m = mRNA)').lower()
+    dataType = input('> Which dataset do you want to process?')
     saveData = input('> Do you want to save the dataset containing only the most relevant features? (Y/N)').lower()
     n = int(input('> How many features do you want to select? '))
     return labelType, dataType, saveData, n
 
 
-def wrong_parameters(labelType, dataType, saveData, n):
-    return (saveData != 'y' and saveData != 'n') or (labelType != 'r' and labelType != 'c') or (dataType != 'm' and dataType != 'mi') or (n < 1 or n > 1000)
+def wrong_parameters(labelType, saveData, n):
+    return (saveData != 'y' and saveData != 'n') or (labelType != 'r' and labelType != 'c') or (n < 1 or n > 1000)
 
 
 def subset_dataset(dataset, bestfeatures, n):   # riduce 'dataset' prendendo solo le feature presenti in 'bestfeatures'

@@ -23,7 +23,7 @@ def rfe_cv(datasetFile, labelDim, tosave, n):
     print('Running RFECV')
     rfecv.fit(X1, target_i)
 
-    n = 100  # to select top n features
+    # n = 100  # to select top n features
     feature_ranks = rfecv.ranking_
     feature_ranks_with_idx = enumerate(feature_ranks)
     sorted_ranks_with_idx = sorted(feature_ranks_with_idx, key=lambda x: x[1])
@@ -45,7 +45,7 @@ def rfe_cv(datasetFile, labelDim, tosave, n):
 
 
 labelType, dataType, saveData, nfeatures = get_param()
-if wrong_parameters(labelType, dataType, saveData, nfeatures):     # verifico input utente
+if wrong_parameters(labelType, saveData, nfeatures):     # verifico input utente
     exit(-1)
-datasetName = 'dataset_finale_' + dataType + 'RNA.csv'
+datasetName = dataType
 rfe_cv(datasetName, labelType, saveData, nfeatures)
