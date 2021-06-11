@@ -100,7 +100,7 @@ def cca_fs(m_data, mi_data, n, label, save):
 # Import Data
 file1 = input('> Dataset1 = ')
 file2 = input('> Dataset2 = ')
-n_ft = int(input('> Number of feature = '))
+n_ft = int(input('> Number of features = '))
 supervised = bool(input('> Supervised version? (1=Yes/0=No)'))
 save = bool(input('> Save CCA dataset? (1=Yes/0=No)'))
 m_data = pd.read_csv(file1, index_col=[0])
