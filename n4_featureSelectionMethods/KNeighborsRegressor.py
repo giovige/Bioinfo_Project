@@ -34,7 +34,7 @@ def KNeighborsReg(datasetFile, labelDim, tosave, n):
 
 
 labelType, dataType, saveData, nfeatures = get_param()
-if wrong_parameters(labelType, dataType, saveData):     # verifico input utente
+if wrong_parameters(labelType, dataType, saveData, nfeatures):     # verifico input utente
     exit(-1)
 datasetName = 'dataset_finale_' + dataType + 'RNA.csv'
 KNeighborsReg(datasetName, labelType, saveData, nfeatures)

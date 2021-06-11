@@ -41,11 +41,11 @@ def get_param():
     return labelType, dataType, saveData, n
 
 
-def wrong_parameters(labelType, dataType, saveData):
-    return (saveData != 'y' and saveData != 'n') or (labelType != 'r' and labelType != 'c') or (dataType != 'm' and dataType != 'mi')
+def wrong_parameters(labelType, dataType, saveData, n):
+    return (saveData != 'y' and saveData != 'n') or (labelType != 'r' and labelType != 'c') or (dataType != 'm' and dataType != 'mi') or (n < 1 or n > 1000)
 
 
-def subset_dataset(dataset, bestfeatures, n):
+def subset_dataset(dataset, bestfeatures, n):   # riduce 'dataset' prendendo solo le feature presenti in 'bestfeatures'
     feat_names = []
     for f in bestfeatures:
         feat_names.append(f[1])
