@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-# import rcca
+import rcca
 from sklearn.preprocessing import LabelBinarizer
 from numpy import array
 
