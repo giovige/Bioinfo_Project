@@ -1,4 +1,4 @@
-CCA_data_poly_sup_mRNA_common.txt
+CCA_data_poly_sup_mRNA_common.txt    12/20
 
 RANBP3  -->  RANBP3 
 ACAD9  -->  ACAD9 is prognostic, high expression is favorable in renal cancer 
