@@ -21,7 +21,8 @@ def random_forest(datasetFile, labelDim, tosave, n):
 
     if tosave == 'y':
         print('saving new dataset...')
-        final_dataset_name = 'RF_' + str(n) + '_' + labelDim + '_' + dataType + 'RNA.csv'
+        # geneType = str(datasetFile).split('_')[2].split('.')[0]
+        final_dataset_name = 'RF_' + str(n) + '_' + labelDim + '_' + dataType
         best_feature_dataset = subset_dataset(data, feat_rf, n)
         best_feature_dataset.to_csv(final_dataset_name, encoding='utf-8')
     else:
