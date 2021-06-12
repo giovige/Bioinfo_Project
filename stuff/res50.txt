@@ -1,0 +1,34 @@
+
+hsa-mir-30a
+hsa-mir-126
+hsa-mir-106b
+old_FS\CCA_data_gau_50_miRNA.txt contains 3/50  using the file n5_validazione_classificazione\downregulated_miRNA.txt
+
+hsa-mir-21
+hsa-mir-10a
+hsa-mir-182
+hsa-mir-210
+old_FS\CCA_data_gau_50_miRNA.txt contains 4/50  using the file n5_validazione_classificazione\upregulated_miRNA.txt
+
+hsa-mir-21
+hsa-mir-210
+hsa-mir-182
+old_FS\CCA_data_lin_50_miRNA.txt contains 3/50  using the file n5_validazione_classificazione\upregulated_miRNA.txt
+
+hsa-mir-126
+hsa-mir-106b
+hsa-mir-30a
+hsa-mir-429
+old_FS\CCA_data_lin_50_miRNA.txt contains 4/50  using the file n5_validazione_classificazione\downregulated_miRNA.txt
+
+hsa-mir-21
+hsa-mir-210
+old_FS\CCA_data_poly_50_miRNA.txt contains 2/50  using the file n5_validazione_classificazione\upregulated_miRNA.txt
+
+hsa-mir-30a
+hsa-mir-126
+hsa-mir-429
+hsa-mir-99a
+hsa-mir-200b
+hsa-mir-106b
+old_FS\CCA_data_poly_50_miRNA.txt contains 6/50  using the file n5_validazione_classificazione\downregulated_miRNA.txt

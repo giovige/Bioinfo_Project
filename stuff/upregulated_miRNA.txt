@@ -6,11 +6,11 @@ hsa-mir-125b
 hsa-mir-221
 hsa-mir-630
 hsa-mir-497
-hsa‑mir‑155‑5p
-hsa‑mir‑155
-hsa‑mir‑210
-hsa‑mir‑210c
-hsa‑mir‑210‑5p
+hsa-mir-155-5p
+hsa-mir-155
+hsa-mir-210
+hsa-mir-210c
+hsa-mir-210-5p
 hsa-mir-1229
 hsa-mir-10a
 hsa-mir-182
