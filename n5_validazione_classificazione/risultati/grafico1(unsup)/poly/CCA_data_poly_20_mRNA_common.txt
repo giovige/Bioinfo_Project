@@ -1,0 +1,22 @@
+CCA_data_poly_20_mRNA_common.txt    7/20
+
+THUMPD2  -->  THUMPD2 is prognostic, high expression is favorable in renal cancer
+UTP18  -->  UTP18 
+EXOSC2  -->  EXOSC2 
+EIF3I  -->  EIF3I is prognostic, high expression is favorable in renal cancer
+IMP4  -->  IMP4 
+THG1L  -->  THG1L is prognostic, high expression is favorable in renal cancer
+RPL23AP82  -->  RPL23AP82 
+ELP4  -->  ELP4 
+PSMC1  -->  PSMC1 
+APBA3  -->  APBA3 
+COA4  -->  COA4 is prognostic, high expression is favorable in renal cancer
+FARSA  -->  FARSA 
+C1orf109  -->  C1orf109 
+FBXO4  -->  FBXO4 is prognostic, high expression is favorable in renal cancer
+KARS1  -->  KARS1 
+BLOC1S4  -->  BLOC1S4 
+NTAN1  -->  NTAN1 
+TRAPPC4  -->  TRAPPC4 
+OXA1L  -->  OXA1L is prognostic, high expression is favorable in renal cancer
+MRPS24  -->  MRPS24 is prognostic, high expression is favorable in renal cancer

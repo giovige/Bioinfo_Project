@@ -1,0 +1,36 @@
+hsa-mir-21
+hsa-mir-10a
+..\old_FS\CCA_alldata_gau_sup_miRNA.txt contains 2/20  using the file upregulated_miRNA.txt
+
+
+hsa-mir-30a
+hsa-mir-126
+..\old_FS\CCA_alldata_gau_sup_miRNA.txt contains 2/20  using the file downregulated_miRNA.txt
+
+
+
+
+
+
+hsa-mir-21
+hsa-mir-210
+..\old_FS/CCA_data_lin_sup_miRNA.txt contains 2/20  using the file upregulated_miRNA.txt
+
+
+hsa-mir-126
+hsa-mir-106b
+..\old_FS/CCA_data_lin_sup_miRNA.txt contains 2/20  using the file downregulated_miRNA.txt
+
+
+
+
+
+
+
+hsa-mir-21
+..\old_FS/CCA_data_poly_sup_miRNA.txt contains 1/20  using the file upregulated_miRNA.txt
+
+
+hsa-mir-30a
+hsa-mir-126
+..\old_FS/CCA_data_poly_sup_miRNA.txt contains 2/20  using the file downregulated_miRNA.txt

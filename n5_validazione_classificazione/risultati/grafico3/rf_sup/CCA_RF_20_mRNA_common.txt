@@ -1,0 +1,22 @@
+CCA_RF_20_mRNA_common.txt
+
+VPS25  -->  VPS25 
+LRRC20  -->  LRRC20 is prognostic, high expression is favorable in renal cancer
+COASY  -->  COASY 
+GPS1  -->  GPS1 
+GSK3A  -->  GSK3A 
+HMGN2P5  -->  HMGN2P5 
+CFAP57  -->  CFAP57 
+ANP32B  -->  ANP32B 
+SLC17A1  -->  SLC17A1 
+H2AC20  -->  H2AC20 is prognostic, high expression is favorable in renal cancer
+GSS  -->  GSS is prognostic, high expression is favorable in renal cancer
+BMI1  -->  BMI1 
+MYO3A  -->  MYO3A 
+DNAAF3  -->  DNAAF3 is prognostic, high expression is favorable in renal cancer
+SNORA22  -->  SNORA22 
+TRABD2B  -->  TRABD2B 
+SNORD17  -->  SNORD17 
+MYCBP2  -->  MYCBP2 is prognostic, high expression is favorable in renal cancer
+ENSG00000233845
+DPRXP1  -->  DPRXP1 

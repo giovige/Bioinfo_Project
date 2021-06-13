@@ -1,0 +1,9 @@
+
+hsa-mir-99a
+hsa-mir-126
+hsa-mir-200b
+CCA_dec_tree_20_miRNA.txt contains 3/20  using the file ..\downregulated_miRNA.txt
+
+hsa-mir-21
+hsa-mir-497
+CCA_dec_tree_20_miRNA.txt contains 2/20  using the file ..\upregulated_miRNA.txt

@@ -1,0 +1,22 @@
+CCA_XGB_20_mRNA_common.txt
+
+TMEM115  -->  TMEM115  is prognostic, high expression is favorable in renal cancer 
+TOLLIP  -->  TOLLIP  is prognostic, high expression is favorable in renal cancer 
+ZNF768  -->  ZNF768  is prognostic, high expression is favorable in renal cancer 
+EMC10  -->  EMC10  is prognostic, high expression is favorable in renal cancer 
+COASY  -->  COASY 
+LYPLA2  -->  LYPLA2  is prognostic, high expression is favorable in renal cancer 
+RTCB  -->  RTCB  is prognostic, high expression is favorable in renal cancer 
+DNAJC27  -->  DNAJC27  is prognostic, high expression is favorable in renal cancer 
+GPS1  -->  GPS1 
+ABHD14B  -->  ABHD14B  is prognostic, high expression is favorable in renal cancer 
+GRB7  -->  GRB7  is prognostic, high expression is favorable in renal cancer 
+EML2  -->  EML2 
+SUGT1P1  -->  SUGT1P1 is prognostic, high expression is favorable in renal cancer 
+UBR3  -->  UBR3 
+HNF4A  -->  HNF4A 
+C4orf3  -->  C4orf3  is prognostic, high expression is favorable in renal cancer 
+ENSG00000266680
+ZNF445  -->  ZNF445 
+HELQ  -->  HELQ  is prognostic, high expression is favorable in renal cancer 
+UQCRFS1-DT  -->  UQCRFS1-DT 

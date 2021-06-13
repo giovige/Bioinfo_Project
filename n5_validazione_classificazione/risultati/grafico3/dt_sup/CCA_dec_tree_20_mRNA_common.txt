@@ -1,0 +1,18 @@
+CCA_dec_tree_20_mRNA_common.txt
+
+ZCCHC4  -->  ZCCHC4 
+TMUB2  -->  TMUB2 
+DDOST  -->  DDOST  is prognostic, high expression is unfavorable in renal cancer
+RTN3  -->  RTN3  is prognostic, high expression is unfavorable in renal cancer
+ZNF333  -->  ZNF333 
+PIGS  -->  PIGS 
+FUT6  -->  FUT6  is prognostic, high expression is unfavorable in renal cancer
+PABPC5  -->  PABPC5 
+IRAK3  -->  IRAK3  is prognostic, high expression is unfavorable in renal cancer
+C15orf61  -->  C15orf61  is prognostic, high expression is unfavorable in renal cancer
+SNORD17  -->  SNORD17 
+LINC01144  -->  LINC01144 
+MIR1291  -->  MIR1291 
+MFSD3  -->  MFSD3  is prognostic, high expression is unfavorable in renal cancer
+snoZ196  -->  snoZ196 
+SLC6A13  -->  SLC6A13 

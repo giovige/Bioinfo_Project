@@ -1,0 +1,22 @@
+CCA_data_lin_20_mRNA_common.txt  10/20
+
+USH1C  -->  USH1C is prognostic, high expression is favorable in renal cancer
+A2M  -->  A2M 
+MMRN2  -->  MMRN2 
+EHHADH  -->  EHHADH is prognostic, high expression is favorable in renal cancer
+MTMR11  -->  MTMR11 
+EPAS1  -->  EPAS1 is prognostic, high expression is favorable in renal cancer
+TEK  -->  TEK is prognostic, high expression is favorable in renal cancer
+HNF1A  -->  HNF1A 
+ENG  -->  ENG is prognostic, high expression is favorable in renal cancer
+EHBP1L1  -->  EHBP1L1 is prognostic, high expression is favorable in renal cancer
+NBR1  -->  NBR1 is prognostic, high expression is favorable in renal cancer
+ENSG00000261269
+NRP1  -->  NRP1 is prognostic, high expression is favorable in renal cancer
+NCOA4  -->  NCOA4 is prognostic, high expression is favorable in renal cancer
+TCEA3  -->  TCEA3 
+ECHDC2  -->  ECHDC2 
+CALHM5  -->  CALHM5 
+SEC14L1  -->  SEC14L1 
+PTPRB  -->  PTPRB is prognostic, high expression is favorable in renal cancer
+CCM2L  -->  CCM2L 
