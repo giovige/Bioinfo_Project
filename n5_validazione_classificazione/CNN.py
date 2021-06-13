@@ -36,11 +36,6 @@ class MyPlot():
                                            ncols=ncols,
                                            figsize=figsize)
 
-def my_histogram(ax, data, color, title=None, rwidth=None, log=True, bins=25, align='mid', density=None):
-    ax.hist(data, color=color, log=log, bins=bins, edgecolor='black', linewidth=1.2, rwidth=rwidth, align=align,
-            density=density);
-    ax.set_title(title);
-
 def compute_confusion_matrix(y_true, y_false):
     cm = confusion_matrix(y_true, y_false)
     return cm
@@ -79,36 +74,43 @@ def plot_confusion_matrix(cm,
     plt.xlabel('Predicted label')
     plt.grid(False)
 
+
+
 ##---------------------------------------------Import Data
-mi_data = pd.read_csv('CCA_result_dataset.csv', index_col=[0])
-dataset = mi_data.values
-target = mi_data.index
+data_name = '' #insert data name
+data = pd.read_csv(data_name, index_col=[0])
+dataset = data.values
+target = data.index
 label_encoder = LabelEncoder()
 y= label_encoder.fit_transform(target)
-X_train, X_test, y_train, y_test = train_test_split(dataset, y, test_size = 0.4, random_state = 0)
-class_names = ['CPTAC-3','TARGET-RT', 'TARGET-WT', 'TGCA-KICH', 'TGCA-KIRC', 'TGCA-KIRP', 'TGCA-SARC']
-class_names_3_label = ['CPTAC-3','TARGET', 'TGCA']
+X_train, X_test, y_train, y_test = train_test_split(dataset, y, test_size = 0.2, random_state = 0)
+class_names = ['CPTAC-3','TARGET-RT', 'TARGET-WT', 'TCGA-KICH', 'TCGA-KIRC', 'TCGA-KIRP', 'TCGA-SARC']
+#c_names =  target.value_counts().index
+
 ##----------------------------------------Define model
 
 model = tf.keras.models.Sequential([
-            tf.keras.layers.Input(shape=X_train.shape[1]),
-            tf.keras.layers.Flatten(),
-            tf.keras.layers.Dense(512, activation='relu', name="fc1"),
-            tf.keras.layers.Dropout(0.2),
-            tf.keras.layers.Dense(len(np.unique(y_test)), activation='softmax', name="predictions")
+            tf.keras.layers.Input(shape=X_train.shape[1]), #input the shape
+            tf.keras.layers.Flatten(), #connection between the input layer and second layer
+            tf.keras.layers.Dense(512, activation='relu', name="fc1"), #multilayer perceptron 512 neuron
+            tf.keras.layers.Dropout(0.2), #dropout layer
+            tf.keras.layers.Dense(len(np.unique(y_test)), activation='softmax', name="predictions") #classification layer(number of label to classify)
             ])
 learning_rate = 0.1
-optimizer = tf.keras.optimizers.Adam(lr=learning_rate)
+optimizer = tf.keras.optimizers.Adam(lr=learning_rate) #Adam optimizer selected(minimization error)
 model.compile(optimizer=optimizer,
-                           loss='sparse_categorical_crossentropy',
-                           metrics=['accuracy'])
+                           loss='sparse_categorical_crossentropy', #loss function
+                           metrics=['accuracy']) #metrics to monitor the train
 
+
+#------------------------------------Classification
 model.fit(X_train, y_train, validation_data=(X_test,y_test),epochs=20, batch_size=64,verbose=1)
 # score = model.evaluate(X_test, y_test, batch_size=128)
 # print(score)
 loss, acc = model.evaluate(X_test, y_test, verbose=False);
 
-#CM
+#Predictions
 predictions = model.predict(X_test)
+#Plot confusion matrix
 cm = compute_confusion_matrix(y_test, np.argmax(predictions, axis=1))
 plot_confusion_matrix(cm, class_names, normalize=True)

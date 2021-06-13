@@ -1,7 +1,11 @@
 from sklearn.preprocessing import LabelEncoder
 import numpy as np
 import pandas as pd
-
+# # library with functions called by multiple FS scripts # - read_dataset(datasetName, labelDimentionality) --> reads
+#                                   a csv file, saving the dataset in a dataframe, using some/all type of class labels
+# - get_param() --> requests to user: type of label to use, input dataset to read, number of feature to select
+# - wrong_parameters(labelType, saveData, n) --> check if parameters inserted by user are valid
+# - subset_dataset(dataset, bestfeatures, n) --> takes a dataset, subsetting it with the list of features taken as input
 
 def read_dataset(datasetName, labelDimentionality):
     data = pd.read_csv(datasetName, index_col=[0])
