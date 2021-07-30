@@ -22,9 +22,9 @@ while i < 100:
         foutMI.write(names_m_ft[i] + '\n')
         totMI += 1
     i += 1
-    if i == 20:  # solo i primi 20 mrna
+    if i == 20:  # first 20 mrna
         i = 50
-    if i == 70:  # solo i primi 20 mirna
+    if i == 70:  # first 20 mirna
         i = 100
 
 # i = 50

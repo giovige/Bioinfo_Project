@@ -1,7 +1,7 @@
 from sys import argv
 
 
-def getMirnaList(file):     # legge file con miRNA presi dalla letteratura
+def getMirnaList(file):     # read the miRNA list found in literature
     features = []
     f = open(file, 'r')
     line = f.readline()

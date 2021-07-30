@@ -91,7 +91,7 @@ def dataset(label, type):
     # Save the final_dataset in .csv
     os.chdir(final_file_path)
     file_name = 'dataset_finale_' + type + '.csv'
-    finale.to_csv(file_name, encoding='utf-8')  # Salvataggio matrice finale
+    finale.to_csv(file_name, encoding='utf-8')  # Save the final matrix
     print('\nfine scrittura csv')
     return finale
 

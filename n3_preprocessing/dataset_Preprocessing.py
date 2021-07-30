@@ -4,18 +4,22 @@ from sklearn import preprocessing
 from sklearn.preprocessing import MinMaxScaler
 from sys import argv
 
+#'dataset_Preprocessing.py' do the pre-processing for the dataset. In particular:
+# -delete features with less than n values (considered non informative)
+# -zero mean rescale
+# -min max rescale
 
 print("Main()")
 scriptname, dataset_name = argv
 todelete_filename = 'zerovalue20.txt'
 # dataset_name = 'dataset_miRNA.csv'
 
-# RECUPERO DA FILE I NOMI DELLE COLONNE DA ELIMINARE (altrimenti commentare)
+# Select the names for delete the features (otherwise comment)
 # worstFeatures = []
-# f = open(todelete_filename, 'r') # file con colonne da eliminare
+# f = open(todelete_filename, 'r') # file with columns (features) to delete
 # line = f.readline()
 # while line:
-#     line = line.strip().split('\n')[0]  # tolgo '\n' da nomi colonne
+#     line = line.strip().split('\n')[0]  # remove '\n' from name columns
 #     worstFeatures.append(line)
 #     line = f.readline()
 # f.close()
@@ -26,7 +30,7 @@ todelete_filename = 'zerovalue20.txt'
 m_data = pd.read_csv(dataset_name, index_col=[0])
 m_names = np.array(m_data.axes[1])  # nomi delle features (geni)
 
-# CALCOLO COLONNE CON MENO DI N VALORI
+# Delete features with less than n values
 n = 20  # numero di valori
 worstFeatures = []
 j = 0

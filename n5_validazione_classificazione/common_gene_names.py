@@ -36,7 +36,7 @@ def common_genes_names(name_list):
                         common_names.append(element['external_name'])
                         fout.write(element['external_name'] + '  -->  ' + element['external_name'] + ' \n')
                         time.sleep(10)  # Sleep for 3 seconds
-                        webbrowser.open('https://www.proteinatlas.org/' + gl[0] + '-' + element['external_name'] + '/pathology/renal+cancer')
+                        webbrowser.open('https://www.proteinatlas.org/' + gl[0] + '-' + element['external_name'] + '/pathology/renal+cancer') #open the web pages for interested gene
                     else:
                         common_names.append(f'{gl[0]}')
                         fout.write(gl[0] + '\n')

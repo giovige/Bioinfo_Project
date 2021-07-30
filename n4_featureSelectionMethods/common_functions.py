@@ -10,14 +10,15 @@ import pandas as pd
 def read_dataset(datasetName, labelDimentionality):
     data = pd.read_csv(datasetName, index_col=[0])
     target = []
-    X1 = data.values  # matrice con solo i valori numerici
-    Y1 = list(data.axes[0])  # target dei 'tumori' (tipologia)
+    X1 = data.values
+    Y1 = list(data.axes[0])
 
-    if labelDimentionality == 'c':      # label completo
+    if labelDimentionality == 'c':
         for line in Y1:
             line = line.strip('"(').strip("',)")
-            target.append(line)  # rimuovo caratteri in eccesso
-    else:   # label ridotto
+            target.append(line)
+    #Change label names for reduced label
+    else:
         for line in Y1:
             line = line.strip('"(').strip("',)")
             if 'TCGA' in line:
@@ -26,10 +27,9 @@ def read_dataset(datasetName, labelDimentionality):
                 line = 'TARGET'
             if 'CPTAC' in line:
                 line = 'CPTAC-3'
-            target.append(line)  # rimuovo caratteri in eccesso
+            target.append(line)
 
     # integer encode
-    # Ho bisogno di trasformare il target da caratteri a numeri
     label_encoder = LabelEncoder()
     target_i = label_encoder.fit_transform(target)  # target integer encoded
     features = np.array(data.axes[1])  # nomi delle features (geni)

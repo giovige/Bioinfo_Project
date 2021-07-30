@@ -36,12 +36,12 @@ def cca_fs(m_data, mi_data, n, label, save):
     # If the hyperparameters are already tuned use rcca.CCA
 
     # In our case we obtain the best results with reg = 0.1 numCC = 10
-    cca = rcca.CCA(kernelcca=True, ktype='gaussian', reg=0.1, numCC=10)
+    cca = rcca.CCA(kernelcca=True, ktype='poly', reg=0.1, numCC=10)
 
     if label is False:
         cca.train([values_m, values_mi])
     else:
-        label = list(m_data.axes[0])
+        label = m_data.axes[0]
         label = array(label)
         # Binary encode
         lb = LabelBinarizer()

@@ -7,7 +7,7 @@ mRNApath = os.getcwd()
 mRNApath = os.path.join(mRNApath, os.pardir) + "\mRNA"
 
 for root, dirs, files in os.walk(mRNApath, topdown=False):
-    ciao = 1
+    pass
 if len(dirs) == 0:
     print('no dir')
     exit(1)

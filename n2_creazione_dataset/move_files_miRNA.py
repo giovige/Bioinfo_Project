@@ -7,7 +7,7 @@ miRNApath = os.getcwd()
 miRNApath = os.path.join(miRNApath, os.pardir) + "\miRNA"
 
 for root, dirs, files in os.walk(miRNApath, topdown=False):
-    ciao = 1
+    pass
 
 if len(dirs) == 0:
     print('no dir')
